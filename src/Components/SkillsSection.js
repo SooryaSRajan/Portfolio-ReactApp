@@ -106,7 +106,8 @@ const Skills = (props) => {
                     <SkillsHolderBox>
                         <ContentHolder>
                             {SKILLS.map((item, index) => (
-                                <SkillsBar primaryColor={item.primaryColor}
+                                <SkillsBar key={index}
+                                           primaryColor={item.primaryColor}
                                            secondaryColor={item.secondaryColor}
                                            percentage={item.percentage} title={item.title}/>
                             ))}
@@ -115,7 +116,8 @@ const Skills = (props) => {
 
                         <ContentHolder>
                             {SKILLS2.map((item, index) => (
-                                <SkillsBar primaryColor={item.primaryColor}
+                                <SkillsBar key={index}
+                                           primaryColor={item.primaryColor}
                                            secondaryColor={item.secondaryColor}
                                            percentage={item.percentage} title={item.title}/>
                             ))}
