@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/my-app/static/css/main.c34a1185.chunk.css",
+    "main.js": "/my-app/static/js/main.70d1b10d.chunk.js",
+    "main.js.map": "/my-app/static/js/main.70d1b10d.chunk.js.map",
+    "runtime-main.js": "/my-app/static/js/runtime-main.98e5c9b5.js",
+    "runtime-main.js.map": "/my-app/static/js/runtime-main.98e5c9b5.js.map",
+    "static/js/2.70ce1d60.chunk.js": "/my-app/static/js/2.70ce1d60.chunk.js",
+    "static/js/2.70ce1d60.chunk.js.map": "/my-app/static/js/2.70ce1d60.chunk.js.map",
+    "static/js/3.6757aaef.chunk.js": "/my-app/static/js/3.6757aaef.chunk.js",
+    "static/js/3.6757aaef.chunk.js.map": "/my-app/static/js/3.6757aaef.chunk.js.map",
+    "index.html": "/my-app/index.html",
+    "static/css/main.c34a1185.chunk.css.map": "/my-app/static/css/main.c34a1185.chunk.css.map",
+    "static/js/2.70ce1d60.chunk.js.LICENSE.txt": "/my-app/static/js/2.70ce1d60.chunk.js.LICENSE.txt",
+    "static/media/MY_RESUME.77c405ec.pdf": "/my-app/static/media/MY_RESUME.77c405ec.pdf",
+    "static/media/wave.ffbfc217.svg": "/my-app/static/media/wave.ffbfc217.svg",
+    "static/media/wave_four.3e5e6183.svg": "/my-app/static/media/wave_four.3e5e6183.svg",
+    "static/media/wave_hero.54160801.svg": "/my-app/static/media/wave_hero.54160801.svg",
+    "static/media/wave_three.55bdbac7.svg": "/my-app/static/media/wave_three.55bdbac7.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.98e5c9b5.js",
+    "static/js/2.70ce1d60.chunk.js",
+    "static/css/main.c34a1185.chunk.css",
+    "static/js/main.70d1b10d.chunk.js"
+  ]
+}
