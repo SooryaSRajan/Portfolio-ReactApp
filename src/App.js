@@ -12,11 +12,6 @@ import Skills from "./Components/SkillsSection";
 const NavSpace = styled.div`
 height: 50px;
 `
-
-const Box3 = styled.div`
-height: ${props => props.height};
-width: 100%;
-`
 const Box4 = styled.div`
 height: ${props => props.height};
 width: 100%;
@@ -41,7 +36,7 @@ function App() {
     return (
 
         <div className="project">
-            <NavBar/>
+            <NavBar height = {height}/>
             <HeroPage/>
             <About height={(height)} width={(width)}/>
             <Skills height={(height)} width={(width)}/>

@@ -26,42 +26,19 @@ cursor: pointer;
 
 const DrawerHolder = styled.div`
 z-index: 90;
-margin-top: 40px;
 position: fixed;
 justify-content: space-between;
-padding: 20px;
+padding: 40px 20px 20px;
 background: #0e0041;
 width: 100%;
+transform: ${({open}) => open ? 'translateY(0)' : 'translateY(-300px)'};
+transition: transform 0.3s ease-in-out;
 display: inline-grid;
-animation: revealClip 1s;
-@keyframes revealClip {
-  0%   {top: -200px; opacity: 0}
-  100% {top: 0; opacity: 1}
-}
+
 @media screen and (min-width: 769px){
 display: none;
 }
 `
-
-const DrawerHolderReverse = styled.div`
-z-index: 90;
-margin-top: 40px;
-position: fixed;
-justify-content: space-between;
-padding: 20px;
-background: #0e0041;
-width: 100%;
-display: inline-grid;
-animation: revealClipHider 1s forwards;
-@keyframes revealClipHider {
-  0%   {top: 0; opacity: 1;  }
-  100% {top: -200px; opacity: 0; display: none}
-}
-@media screen and (min-width: 769px){
-display: none;
-}
-`
-
 
 const DrawerButtons = styled(Link).attrs(() => ({
     activeClass: 'active',
@@ -87,40 +64,25 @@ cursor: pointer;
 
 
 const NavDrawer = (props) => {
-    if (props.isVisible) {
-        console.log(props.isVisible + "visible")
+
         return (
+
             <Router>
-                <DrawerHolder hidden draggable="true">
+                <DrawerHolder open={props.isOpen}>
                     {navigationData.map((item, index) => (
                         <DrawerButtons key={index}
                                        to={item.link}
                                        activeClass="active"
                                        spy={true}
-                                       smooth={true}>
+                                       smooth={true}
+                                        onClick={()=>{props.clickListener(false)}}
+                        >
                             {item.title}
                         </DrawerButtons>
                     ))}
-
                 </DrawerHolder>
             </Router>
         )
-
-    } else return (
-        <Router>
-            <DrawerHolderReverse>
-                {navigationData.map((item, index) => (
-                    <DrawerButtons key={index}
-                                   to={item.link}
-                                   activeClass="active"
-                                   spy={true}
-                                   smooth={true}>
-                        {item.title}
-                    </DrawerButtons>
-                ))}
-            </DrawerHolderReverse>
-        </Router>
-    )
 
 }
 //If you change your mind:

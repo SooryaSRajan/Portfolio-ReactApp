@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import React from "react";
 import {FaFacebook, FaInstagram, FaGoogle, FaLinkedin, FaGithub} from "react-icons/fa";
+import Zoom from "react-reveal/Zoom";
+import Flip from "react-reveal/Flip";
+
 //background: linear-gradient(45deg, #9500ff, #006ded, #ed005f, #d9ff00);
 
 const FooterHolder = styled.div`
@@ -139,7 +142,9 @@ const FooterBar = () => {
 
     return (
             <FooterHolder id="footer">
+
                 <IconsHolder>
+                    <Flip bottom>
                     <IconsAlignment>
                             <FaceBookIcon onClick={() => open('https://www.facebook.com/Soorya.SRajan/')}/>
                             <InstagramIcon onClick={() => open('http://instagram.com/the_convoluted_soul')}/>
@@ -147,10 +152,15 @@ const FooterBar = () => {
                             <LinkedInIcon onClick={() => open('https://www.linkedin.com/in/soorya-s-39952b151')}/>
                             <GitHubIcon onClick={() => open('https://github.com/SooryaSRajan')}/>
                     </IconsAlignment>
+                </Flip>
                 </IconsHolder>
                 <BottomHolder>
-                    <BottomTextBox>Copyrights © 2021 All rights reserved</BottomTextBox>
-                    <BottomTextBox>Designed by Soorya S</BottomTextBox>
+                    <Zoom left>
+                        <BottomTextBox>Copyrights © 2021 All rights reserved</BottomTextBox>
+                    </Zoom>
+                    <Zoom right>
+                        <BottomTextBox>Designed by Soorya S</BottomTextBox>
+                    </Zoom>
                 </BottomHolder>
             </FooterHolder>
     )

@@ -7,8 +7,11 @@ import pdf from "../Data/MY_RESUME.pdf";
 import SkillsBar from "./SkillsBar";
 import SKILLS from "../Data/SkillsDataSectionOne";
 import SKILLS2 from "../Data/SkillsDataSectionTwo";
+import Bounce from "react-reveal/Bounce";
+import Flip from "react-reveal/Flip";
 
 const SkillsHolder = styled.div`
+overflow: hidden;
 height: 100%;
 min-height: ${props => props.height};
 background: url(${svg}) no-repeat  #5b1bd6 top;
@@ -89,6 +92,8 @@ const Skills = (props) => {
         <Router>
             <SkillsHolder id="skills" height={props.height + "px"}>
                 <ContentHolder>
+                    <Flip left>
+
                     <TextHolder>
                         Skills
                     </TextHolder>
@@ -96,41 +101,52 @@ const Skills = (props) => {
                         I have experience in languages such as C, C++, Java, Javascript and Python.
                     </SubTextHolder>
                     <SubTextHolder>
-                        I also have really good experience in Android Native application development and Flutter
+                        I also have really good experience in Android native application development and Flutter
                         development.
                     </SubTextHolder>
                     <SubTextHolder>
                         I also have decent experience in React Js and React Native.
                     </SubTextHolder>
+                    </Flip>
 
                     <SkillsHolderBox>
+
                         <ContentHolder>
+                            <Bounce left>
+
                             {SKILLS.map((item, index) => (
                                 <SkillsBar key={index}
                                            primaryColor={item.primaryColor}
                                            secondaryColor={item.secondaryColor}
-                                           percentage={item.percentage} title={item.title}/>
+                                           percentage={item.percentage} title={item.title}
+                                />
                             ))}
+                            </Bounce>
 
                         </ContentHolder>
 
                         <ContentHolder>
+                            <Bounce right>
+
                             {SKILLS2.map((item, index) => (
                                 <SkillsBar key={index}
                                            primaryColor={item.primaryColor}
                                            secondaryColor={item.secondaryColor}
-                                           percentage={item.percentage} title={item.title}/>
+                                           percentage={item.percentage} title={item.title}
+                                />
                             ))}
+                            </Bounce>
                         </ContentHolder>
                     </SkillsHolderBox>
-
                     <DownloadButtonHolder>
+                        <Flip top>
                         <DownloadButtonContentBox to={pdf} target="_blank" download>
                             <DownloadButtonIcon/>
                             <DownloadTextHolder>
                                 Download Resume
                             </DownloadTextHolder>
                         </DownloadButtonContentBox>
+                        </Flip>
                     </DownloadButtonHolder>
                 </ContentHolder>
             </SkillsHolder>

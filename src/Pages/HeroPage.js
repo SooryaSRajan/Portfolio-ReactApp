@@ -7,6 +7,8 @@ import {FaArrowAltCircleDown} from "react-icons/fa";
 import {Link} from 'react-scroll';
 import svgHero
     from "../Images/wave_hero.svg";
+import Fade from "react-reveal/Fade";
+import Zoom from "react-reveal/Zoom";
 
 const HeroBackGround = styled.div`
 z-index: 0;
@@ -21,6 +23,7 @@ background-position: bottom;
 `
 
 const HeroBox = styled.div`
+overflow: hidden;
 margin: 0;
 position: relative;
 min-height: ${props => props.height};
@@ -30,7 +33,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 background: linear-gradient(60deg, #00d9ff, #b000ae, #ff0067, #d9ff00);
-animation: gradient 15s ease infinite;
+//animation: gradient 15s ease infinite;
 background-size: 300% ;
 @keyframes gradient {
 0% {
@@ -64,7 +67,8 @@ position: absolute;
 font-size: 40px;
 align-content: center;
 align-items: center;
-margin: 40px;
+margin-right: 20px;
+margin-bottom: 40px;
 transition: 0.3s;
 animation: revealContent 1s;
 @keyframes revealContent {
@@ -76,10 +80,13 @@ cursor: pointer;
 transform: scale(1.2) rotate(360deg);
 color: black;
 }
+@media screen and (max-width: 768px){
+display: none;
+}
 `
 
 const NameTextHolder = styled.div`
-animation: revealContent 1s;
+//animation: revealContent 1s;
 @keyframes revealContent {
   0%   { transform:  scale(0); opacity: 0}
   100%   { transform:  scale(1); opacity: 1}
@@ -89,7 +96,7 @@ font-size: clamp(1rem, 12vw, 7rem);
 `
 
 const DescriptionHolder = styled.div`
-animation: revealContent 1s;
+//animation: revealContent 1s;
 @keyframes revealContent {
   0%   { transform:  scale(0); opacity: 0}
   100%   { transform:  scale(1); opacity: 1}
@@ -98,7 +105,7 @@ font-size: clamp(0.8rem, 2vw, 1.3rem);
 `
 
 const SubDescriptionHolder = styled.div`
-animation: revealContent 1s;
+//animation: revealContent 1s;
 @keyframes revealContent {
   0%   { transform:  scale(0); opacity: 0}
   100%   { transform:  scale(1); opacity: 1}
@@ -118,7 +125,7 @@ margin-right: 10px;
 `
 
 const Button = styled.div`
-animation: revealContent 1s;
+//animation: revealContent 1s;
 @keyframes revealContent {
   0%   { transform:  scale(0); opacity: 0}
   100%   { transform:  scale(1); opacity: 1; ;
@@ -145,7 +152,7 @@ transform: scale(1.1, 1.1);
 
 const ImageHolder = styled.div`
 z-index: 0;
-animation: revealContent 1s;
+//animation: revealContent 1s;
 @keyframes revealContent {
   0%   { transform:  scale(0); opacity: 0}
   100%   { transform:  scale(1); opacity: 1}
@@ -192,7 +199,9 @@ const HeroPage = () => {
         <Router>
             <HeroBox id="home" height={(height) + "px"}>
                 <HeroBackGround height={(height) + "px"}/>
-                <ImageHolder height={(height / 2) + "px"}/>
+                <Zoom left>
+                    <ImageHolder height={(height / 2) + "px"}/>
+                </Zoom>
                 <Jumbotron>
                     <Link
                         activeClass="active"
@@ -201,28 +210,37 @@ const HeroPage = () => {
                         smooth={true}>
                         <DownArrow/>
                     </Link>
-                    <NameTextHolder>
-                        Soorya S
-                    </NameTextHolder>
-                    <DescriptionHolder>
-                        Second year student at Amrita School of Engineering, Coimbatore
-                    </DescriptionHolder>
-                    <SubDescriptionHolder>
-                        Mobile Application and Web Developer
-                    </SubDescriptionHolder>
-                    <Button color={"#161b22"} onClick={() => open('https://github.com/SooryaSRajan')}>
-                        <ButtonIconGit/>
-                        <p>
-                            GitHub
-                        </p>
-                    </Button>
-                    <Button color={"#0a66c2"}
-                            onClick={() => open('https://www.linkedin.com/in/soorya-s-39952b151')}>
-                        <ButtonIconLinkedIn/>
-                        <p>
-                            LinkedIn
-                        </p>
-                    </Button>
+                    <Fade right>
+
+                        <NameTextHolder>
+                            SOORYA S
+                        </NameTextHolder>
+                    </Fade>
+                    <Fade left>
+                        <DescriptionHolder>
+                            Second year student at Amrita School of Engineering, Coimbatore
+                        </DescriptionHolder>
+                        <SubDescriptionHolder>
+                            Mobile Application and Web Developer
+                        </SubDescriptionHolder>
+                    </Fade>
+                    <Zoom>
+                        <div>
+                            <Button color={"#161b22"} onClick={() => open('https://github.com/SooryaSRajan')}>
+                                <ButtonIconGit/>
+                                <p>
+                                    GitHub
+                                </p>
+                            </Button>
+                            <Button color={"#0a66c2"}
+                                    onClick={() => open('https://www.linkedin.com/in/soorya-s-39952b151')}>
+                                <ButtonIconLinkedIn/>
+                                <p>
+                                    LinkedIn
+                                </p>
+                            </Button>
+                        </div>
+                    </Zoom>
                 </Jumbotron>
             </HeroBox>
         </Router>

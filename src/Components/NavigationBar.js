@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from 'styled-components';
 import {navigationData} from "../Data/NavigationData";
 import {BrowserRouter as Router} from "react-router-dom";
@@ -17,7 +17,6 @@ padding: 8px;
 z-index: 100;
 @media screen and (max-width: 768px){
 display: flex;
-background: #0e0041;
 }
 `
 
@@ -37,21 +36,11 @@ cursor: pointer;
 border-radius: 10px;
 background: white;
 color: black;
-animation: revealMenu 1s;
-@keyframes revealMenu {
-  0%   { transform:  rotate(0deg)}
-  100%   { transform:  rotate(180deg)}
 }
-
-}
-@keyframes hideMenu {
-  0%   { transform:  rotate(0deg)}
-  100%   { transform:  rotate(180deg)}
-}
-animation: hideMenu 1s;
+transform: ${({open}) => open ? 'rotate(180deg)' : 'rotate(-180deg)'};
+transition: 0.3s ease-in-out;
 color: white;
-transition: 0.3s;
-margin-left: 10px;
+margin-right: 20px;
 align-items: center;
 align-content: center;
 display: none;
@@ -114,55 +103,51 @@ width: 100px;
 display: none;
 `
 
-class NavBar extends React.Component {
+const BackDrop = styled.div`
+z-index: 50;
+width: 100%;
+backdrop-filter: blur(10px);
+height: ${props => props.height + "px"};;
+background-color: rgba(0,0,0,0.5);
+position: fixed;
+display: none;
+@media screen and (max-width: 768px){
+display: block;
+visibility: ${({open}) => open ? 'visible' : 'hidden'};
+transition: opacity 0.3s ease-in-out;
+opacity: ${({open}) => open ? '1' : '0'};
+}
+`
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            isOpen: false
-        };
-        this.handleClick = this.handleClick.bind(this);
-    }
+const NavBar = (props) => {
 
-    handleClick = () => {
-        if (this.state.isOpen) {
-            this.setState(
-                {
-                    isOpen: false
-                })
-        } else {
-            this.setState(
-                {
-                    isOpen: true
-                })
-        }
+    const [open, setOpen] = useState(false);
 
-    };
+    return (
+        <Router>
+            <BackDrop height={props.height} open={open}/>
+            <Nav>
 
-    render() {
-
-        return (
-            <Router>
-                <Nav>
-                    <MenuBar onClick={this.handleClick}/>
-                    <NavMenu>
-                        {navigationData.map((item, index) => (
-                            <NavMenuButtons key={index}
-                                            to={item.link}
-                                            spy={true}
-                                            smooth={true}
-                            >
-                                {item.title}
-                            </NavMenuButtons>
-                        ))}
-                    </NavMenu>
-                </Nav>
-                <NavDrawer isVisible={this.state.isOpen}/>
-            </Router>
+                <NavMenu>
+                    {navigationData.map((item, index) => (
+                        <NavMenuButtons key={index}
+                                        to={item.link}
+                                        spy={true}
+                                        smooth={true}
+                        >
+                            {item.title}
+                        </NavMenuButtons>
+                    ))}
+                </NavMenu>
+                <MenuBar onClick={() => {
+                    setOpen(!open)
+                }} open={open}/>
+            </Nav>
+            <NavDrawer isOpen={open} clickListener={setOpen}/>
+        </Router>
 
 
-        )
-    }
+    )
 
 }
 

@@ -2,9 +2,11 @@ import styled from 'styled-components';
 import React from "react";
 import svg
     from "../Images/wave.svg";
+import Bounce from "react-reveal/Bounce";
 
 
 const AboutContainer = styled.div`
+overflow: hidden;
 min-height: ${props => props.height + "px"};
 height: 100%;
 width: 100%;
@@ -114,7 +116,7 @@ const About = (props) => {
     return (
         <AboutContainer height={(props.height)} id={'about'}>
             <ContentSection>
-
+                <Bounce right>
                 <Header>
                     Hey there!
                 </Header>
@@ -158,7 +160,7 @@ const About = (props) => {
                     </EducationTitle>
                     <SubHeader>
                         <SubHeaderHover>
-                            B.Tech in Computer Science and Engineering • 2019-2023 • 9.04 CGPA
+                            B.Tech in Computer Science and Engineering • 2019-2023 • 9.02 CGPA
                         </SubHeaderHover>
                     </SubHeader>
                     <EducationTitle>
@@ -198,8 +200,11 @@ const About = (props) => {
                         </LinkContainer>
                     </p>
                 </Content>
+                </Bounce>
             </ContentSection>
-            <ImageHolder height={(props.height) + "px"}/>
+            <Bounce top>
+                <ImageHolder height={(props.height) + "px"}/>
+            </Bounce>
         </AboutContainer>
     )
 }
