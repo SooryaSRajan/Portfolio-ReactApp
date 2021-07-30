@@ -7,16 +7,14 @@ import Bounce from "react-reveal/Bounce";
 
 const AboutContainer = styled.div`
 overflow: hidden;
-min-height: ${props => props.height + "px"};
+min-height: 100vh;
 height: 100%;
 width: 100%;
-background: #252627 url(${svg}) no-repeat;
+background: #151515 url(${svg}) no-repeat;
 display: flex;
 align-items: center;
 align-content: center;
 justify-content: space-evenly;
-padding-top: 20px;
-padding-bottom: 20px;
 `
 const ContentSection = styled.div`
 margin: 40px;
@@ -30,11 +28,11 @@ animation: revealContent 1s;
 }
 
 background-image: url("https://www.w3schools.com/howto/img_avatar.png");
-background-size: clamp(8rem, 16vw, ${props => props.height}) clamp(8rem, 16vw, ${props => props.height});
+background-size: clamp(8rem, 16vw, 50vw) clamp(8rem, 16vw, 50vw);
 background-repeat: no-repeat;
 background-position: center;
-height: clamp(8rem, 16vw, ${props => props.height});
-width: clamp(8rem, 16vw, ${props => props.height});
+height: clamp(8rem, 16vw, 50vw);
+width: clamp(8rem, 16vw, 50vw);
 border-radius: 10%;
 margin: 10px;
 @media screen and (max-width: 768px){
@@ -43,7 +41,7 @@ display: none;
 `
 
 const Header = styled.h1`
-font-size: 38px;
+font-size: clamp(2.5vw, 38px, 10vw);
 color: white;
 `
 
@@ -54,10 +52,12 @@ border-bottom: 3px solid #00cdff;
 `
 
 const Content = styled.div`
+word-wrap: break-word;
+word-break: break-word;
 color: #b1b0b0;
 margin-bottom: 20px;
-width: ${props => props.width};
-font-size: 17px;
+width: 50vw;
+font-size: clamp(1rem, 17px, 1.3rem);
 @media screen and (max-width: 768px){
 width: 90%;
 `
@@ -114,8 +114,8 @@ const About = (props) => {
     };
 
     return (
-        <AboutContainer height={(props.height)} id={'about'}>
-            <ContentSection>
+        <AboutContainer id={'about'}>
+            <ContentSection id={'about'}>
                 <Bounce right>
                 <Header>
                     Hey there!
@@ -140,7 +140,7 @@ const About = (props) => {
                         • Artist
                     </SubHeaderHover>
                 </SubHeader>
-                <Content width={props.width / 2 + "px"}>
+                <Content >
                     I am a 19 year old computer aspirant with an endearment for computers and technology.
                     I am currently pursuing my bachelor's degree in Computer Science (B.Tech CSE) in
                     <LinkSpan
@@ -154,7 +154,7 @@ const About = (props) => {
                 <HeaderWithBorder>
                     Education
                 </HeaderWithBorder>
-                <Content width={props.width / 2 + "px"}>
+                <Content>
                     <EducationTitle>
                         • AMRITA VISHVA VIDYAPEETHAM
                     </EducationTitle>
@@ -185,7 +185,7 @@ const About = (props) => {
                 <HeaderWithBorder>
                     Get in touch
                 </HeaderWithBorder>
-                <Content width={props.width / 2 + "px"}>
+                <Content>
                     <p>Soorya S</p>
                     <p>+91 9080336540</p>
                     <p>
@@ -203,7 +203,7 @@ const About = (props) => {
                 </Bounce>
             </ContentSection>
             <Bounce top>
-                <ImageHolder height={(props.height) + "px"}/>
+                <ImageHolder/>
             </Bounce>
         </AboutContainer>
     )

@@ -7,6 +7,8 @@ import NavDrawer from "./NavigationDrawer";
 import {Link} from 'react-scroll';
 
 const Nav = styled.nav`
+backdrop-filter: blur(2px);
+background: linear-gradient(0deg, rgba(0,0,0,0), rgba(0, 0, 0, 0.4));
 height: 40px;
 width: 100%;
 position: fixed;
@@ -17,15 +19,12 @@ padding: 8px;
 z-index: 100;
 @media screen and (max-width: 768px){
 display: flex;
+backdrop-filter: none;
 }
 `
 
-const NavBackground = styled.nav`
-width: 100%;
-height: 100%;
-`
-
 const NavMenu = styled.div`
+transition: transform 0.7s ease-in-out;
 margin: 10px;
 align-items: center;
 `
@@ -48,6 +47,12 @@ padding: 10px;
 @media screen and (max-width: 768px){
 display: flex;
 }
+@media screen and (max-height: 230px){
+display: none;
+}
+@media screen and (max-width: 230px){
+display: none;
+}
 `
 const NavMenuButtons = styled(Link).attrs(() => ({
     activeClass: 'active',
@@ -60,7 +65,7 @@ color: #ffffff;
 color: #ffffff;
 border-bottom: 3px solid #00cdff;
  }
- font-size: 16px;
+font-size: 16px;
 font-weight: 400;
 transition: 0.3s;
 color: #d2d2d2;
@@ -73,29 +78,10 @@ cursor: pointer;
 @media screen and (max-width: 768px){
 display: none;
 }
-
-`;
-
-const ContactMe = styled(Link)`
-&:hover{
-color: #e0e0e0;
-transform: scale(1.1, 1.1);
-}
-background: #0e0041;
-margin-right: 40px;
-transition: 0.3s;
-border-radius: 5px;
-text-align: center;
-align-content: center;
-align-items: center;
-padding: 8px 30px;
-color: white;
-cursor: pointer;
-text-decoration: none;
-@media screen and (max-width: 768px){
+@media screen and (max-height: 230px){
 display: none;
 }
-`
+`;
 
 const EmptyBox = styled.div`
 width: 100px;
@@ -103,11 +89,12 @@ width: 100px;
 display: none;
 `
 
+
 const BackDrop = styled.div`
 z-index: 50;
 width: 100%;
 backdrop-filter: blur(10px);
-height: ${props => props.height + "px"};;
+height: 100vh;
 background-color: rgba(0,0,0,0.5);
 position: fixed;
 display: none;
@@ -117,23 +104,30 @@ visibility: ${({open}) => open ? 'visible' : 'hidden'};
 transition: opacity 0.3s ease-in-out;
 opacity: ${({open}) => open ? '1' : '0'};
 }
+
+@media screen and (max-height: 230px){
+display: none;
+}
 `
 
 const NavBar = (props) => {
 
     const [open, setOpen] = useState(false);
-
     return (
         <Router>
-            <BackDrop height={props.height} open={open}/>
+            <BackDrop height={props.height} open={open} onClick={() => {
+                setOpen(false)
+            }}/>
             <Nav>
 
                 <NavMenu>
                     {navigationData.map((item, index) => (
-                        <NavMenuButtons key={index}
-                                        to={item.link}
-                                        spy={true}
-                                        smooth={true}
+                        <NavMenuButtons
+                            key={index}
+                            to={item.link}
+                            spy={true}
+                            smooth={true}
+
                         >
                             {item.title}
                         </NavMenuButtons>
@@ -151,10 +145,5 @@ const NavBar = (props) => {
 
 }
 
-//If you change your mind:
-//                    <ContactMe to="/contact">
-//                         Contact Me
-//                     </ContactMe>
-//                    <EmptyBox/>
 
 export default NavBar;

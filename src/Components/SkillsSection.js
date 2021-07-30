@@ -11,10 +11,12 @@ import Bounce from "react-reveal/Bounce";
 import Flip from "react-reveal/Flip";
 
 const SkillsHolder = styled.div`
+word-wrap: break-word;
+word-break: break-word;
 overflow: hidden;
 height: 100%;
-min-height: ${props => props.height};
-background: url(${svg}) no-repeat  #5b1bd6 top;
+min-height: 100vh;
+background: url(${svg}) no-repeat  #341ba4 top;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -35,11 +37,13 @@ width: 100%;
 `
 
 const TextHolder = styled.h1`
+margin-top: 50px;
 margin-bottom: 20px;
 text-align: center;
 color: white;
 font-size: 38px;
 `
+
 const SubTextHolder = styled.div`
 text-align: center;
 color: #c6c6c6;
@@ -49,7 +53,7 @@ margin-right: 30px;
 `
 
 const DownloadButtonIcon = styled(FaDownload)`
-margin-right: 10px;
+margin-left: 10px;
 color: black;
 `
 const DownloadTextHolder = styled.h4`
@@ -57,6 +61,7 @@ color: black;
 `
 
 const DownloadButtonContentBox = styled(Link)`
+word-break: keep-all;
 text-decoration: none;
 padding: 10px 30px;
 display: -webkit-inline-flex;
@@ -67,7 +72,9 @@ align-content: center;
 background-color: white;
 border-radius: 5px;
 transition: 1s;
-
+@media screen and (max-width: 160px){
+display: none;
+}
 &:hover{
 cursor: pointer;
 animation: hoverAnimation ease 1.2s infinite;
@@ -88,25 +95,27 @@ text-align: center;
 `
 
 const Skills = (props) => {
+
+
     return (
         <Router>
-            <SkillsHolder id="skills" height={props.height + "px"}>
+            <SkillsHolder height={props.height + "px"} id="skills">
                 <ContentHolder>
                     <Flip left>
 
-                    <TextHolder>
-                        Skills
-                    </TextHolder>
-                    <SubTextHolder>
-                        I have experience in languages such as C, C++, Java, Javascript and Python.
-                    </SubTextHolder>
-                    <SubTextHolder>
-                        I also have really good experience in Android native application development and Flutter
-                        development.
-                    </SubTextHolder>
-                    <SubTextHolder>
-                        I also have decent experience in React Js and React Native.
-                    </SubTextHolder>
+                        <TextHolder>
+                            Skills
+                        </TextHolder>
+                        <SubTextHolder>
+                            I have experience in languages such as C, C++, Java, Javascript and Python.
+                        </SubTextHolder>
+                        <SubTextHolder>
+                            I also have really good experience in Android native application development and Flutter
+                            development.
+                        </SubTextHolder>
+                        <SubTextHolder>
+                            I also have decent experience in React Js and React Native.
+                        </SubTextHolder>
                     </Flip>
 
                     <SkillsHolderBox>
@@ -114,13 +123,13 @@ const Skills = (props) => {
                         <ContentHolder>
                             <Bounce left>
 
-                            {SKILLS.map((item, index) => (
-                                <SkillsBar key={index}
-                                           primaryColor={item.primaryColor}
-                                           secondaryColor={item.secondaryColor}
-                                           percentage={item.percentage} title={item.title}
-                                />
-                            ))}
+                                {SKILLS.map((item, index) => (
+                                    <SkillsBar key={index}
+                                               primaryColor={item.primaryColor}
+                                               secondaryColor={item.secondaryColor}
+                                               percentage={item.percentage} title={item.title}
+                                    />
+                                ))}
                             </Bounce>
 
                         </ContentHolder>
@@ -128,24 +137,24 @@ const Skills = (props) => {
                         <ContentHolder>
                             <Bounce right>
 
-                            {SKILLS2.map((item, index) => (
-                                <SkillsBar key={index}
-                                           primaryColor={item.primaryColor}
-                                           secondaryColor={item.secondaryColor}
-                                           percentage={item.percentage} title={item.title}
-                                />
-                            ))}
+                                {SKILLS2.map((item, index) => (
+                                    <SkillsBar key={index}
+                                               primaryColor={item.primaryColor}
+                                               secondaryColor={item.secondaryColor}
+                                               percentage={item.percentage} title={item.title}
+                                    />
+                                ))}
                             </Bounce>
                         </ContentHolder>
                     </SkillsHolderBox>
                     <DownloadButtonHolder>
                         <Flip top>
-                        <DownloadButtonContentBox to={pdf} target="_blank" download>
-                            <DownloadButtonIcon/>
-                            <DownloadTextHolder>
-                                Download Resume
-                            </DownloadTextHolder>
-                        </DownloadButtonContentBox>
+                            <DownloadButtonContentBox to={pdf} target="_blank" download>
+                                <DownloadTextHolder>
+                                    Resume
+                                </DownloadTextHolder>
+                                <DownloadButtonIcon/>
+                            </DownloadButtonContentBox>
                         </Flip>
                     </DownloadButtonHolder>
                 </ContentHolder>

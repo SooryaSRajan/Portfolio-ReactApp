@@ -1,23 +1,11 @@
 import './App.css';
 import React from "react";
 import NavBar from "./Components/NavigationBar";
-import styled from 'styled-components';
 import HeroPage from "./Pages/HeroPage";
 import FooterBar from "./Components/FooterBar";
 import About from "./Components/AboutSection";
-import SvgTwo from "./Images/wave_four.svg";
 import Skills from "./Components/SkillsSection";
-
-//5b1bd6
-const NavSpace = styled.div`
-height: 50px;
-`
-const Box4 = styled.div`
-height: ${props => props.height};
-width: 100%;
-background: url(${SvgTwo}) no-repeat #252627 top;
-`
-
+import Projects from "./Components/Projects";
 
 function App() {
     React.useEffect(() => {
@@ -40,7 +28,7 @@ function App() {
             <HeroPage/>
             <About height={(height)} width={(width)}/>
             <Skills height={(height)} width={(width)}/>
-            <Box4 id="projects" height={(height) + "px"}/>
+            <Projects height={(height + 20) + "px"}/>
             <FooterBar/>
         </div>
     );

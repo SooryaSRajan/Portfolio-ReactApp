@@ -3,6 +3,7 @@ import React from "react";
 import {FaFacebook, FaInstagram, FaGoogle, FaLinkedin, FaGithub} from "react-icons/fa";
 import Zoom from "react-reveal/Zoom";
 import Flip from "react-reveal/Flip";
+import bg from "../Images/bg_final.webp"
 
 //background: linear-gradient(45deg, #9500ff, #006ded, #ed005f, #d9ff00);
 
@@ -10,8 +11,8 @@ const FooterHolder = styled.div`
 height: 200px;
 position: relative;
 width: 100%;
-background: #0e0041;
-@media screen and (max-width: 768px){
+background: #341ba4;
+@media screen and (max-width: 700px){
 height: 10%;
 padding-top: 50px;
 padding-bottom: 50px;
@@ -30,7 +31,7 @@ color: white;
 &:hover{
 cursor: pointer;
 transform: scale(1.3);
-color: #4267B2;
+color: #2a74ff;
 }
 `
 
@@ -88,7 +89,7 @@ height: 75%;
 display: flex;
 align-items: center;
 justify-content: center;
-@media screen and (max-width: 768px){
+@media screen and (max-width: 700px){
 height: 100%;
 }
 `
@@ -104,26 +105,25 @@ padding-bottom: 3px;
 display: flex;
 height: 25%;
 width: 100%;
-background: #0e0041;
-background: linear-gradient(60deg, #00ffb7, #ac00a9, #ed005f, #d9ff00);
 align-items: center;
 justify-content: space-evenly;
-@media screen and (max-width: 768px){
+@media screen and (max-width: 700px){
 display: none;
 }
-background-size: 200% 200%;
-animation: gradient 15s ease infinite;
+
+background: url(${bg}) fixed;
+animation: gradient 15s ease-in-out infinite;
+background-size: 250vh;
 @keyframes gradient {
 0% {
-background-position: 0 50%;
+background-position:0 0;
 }
 50% {
-background-position: 100% 50%;
+background-position:70% 0;
 }
 100% {
-background-position: 0 50%;
+background-position:0 0;
 }
-
 `
 
 const BottomTextBox = styled.p`
@@ -141,28 +141,29 @@ const FooterBar = () => {
     };
 
     return (
-            <FooterHolder id="footer">
+        <FooterHolder id="footer">
 
-                <IconsHolder>
-                    <Flip bottom>
+            <IconsHolder>
+                <Flip bottom>
                     <IconsAlignment>
-                            <FaceBookIcon onClick={() => open('https://www.facebook.com/Soorya.SRajan/')}/>
-                            <InstagramIcon onClick={() => open('http://instagram.com/the_convoluted_soul')}/>
-                            <GoogleIcon onClick={() => open('https://mail.google.com/mail/u/1/?view=cm&fs=1&to=soorya.s27@gmail.com&tf=1')}/>
-                            <LinkedInIcon onClick={() => open('https://www.linkedin.com/in/soorya-s-39952b151')}/>
-                            <GitHubIcon onClick={() => open('https://github.com/SooryaSRajan')}/>
+                        <FaceBookIcon onClick={() => open('https://www.facebook.com/Soorya.SRajan/')}/>
+                        <InstagramIcon onClick={() => open('http://instagram.com/the_convoluted_soul')}/>
+                        <GoogleIcon
+                            onClick={() => open('https://mail.google.com/mail/u/1/?view=cm&fs=1&to=soorya.s27@gmail.com&tf=1')}/>
+                        <LinkedInIcon onClick={() => open('https://www.linkedin.com/in/soorya-s-39952b151')}/>
+                        <GitHubIcon onClick={() => open('https://github.com/SooryaSRajan')}/>
                     </IconsAlignment>
                 </Flip>
-                </IconsHolder>
-                <BottomHolder>
-                    <Zoom left>
-                        <BottomTextBox>Copyrights © 2021 All rights reserved</BottomTextBox>
-                    </Zoom>
-                    <Zoom right>
-                        <BottomTextBox>Designed by Soorya S</BottomTextBox>
-                    </Zoom>
-                </BottomHolder>
-            </FooterHolder>
+            </IconsHolder>
+            <BottomHolder>
+                <Zoom left>
+                    <BottomTextBox>Copyrights © 2021 All rights reserved</BottomTextBox>
+                </Zoom>
+                <Zoom right>
+                    <BottomTextBox>Designed by Soorya S</BottomTextBox>
+                </Zoom>
+            </BottomHolder>
+        </FooterHolder>
     )
 
 }
