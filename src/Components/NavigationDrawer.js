@@ -20,6 +20,9 @@ transform: translateY(-300px);
 @media screen and (max-height: 230px){
 transform: translateY(-300px);
 }
+@media screen and (max-width: 230px){
+transform: translateY(-300px);
+}
 `
 
 const DrawerButtons = styled(Link).attrs(() => ({
@@ -46,9 +49,7 @@ cursor: pointer;
 
 
 const NavDrawer = (props) => {
-
     return (
-
         <Router>
             <DrawerHolder open={props.isOpen}>
                 {navigationData.map((item, index) => (
@@ -67,7 +68,6 @@ const NavDrawer = (props) => {
             </DrawerHolder>
         </Router>
     )
-
 }
 
 export default NavDrawer;

@@ -21,6 +21,11 @@ z-index: 100;
 display: flex;
 backdrop-filter: none;
 }
+animation: revealBar 1s;
+@keyframes revealBar {
+  0%   { transform:  translateY(-100px); opacity: 0}
+  100%   { transform:  translateY(0); opacity: 1}
+}
 `
 
 const NavMenu = styled.div`
@@ -83,13 +88,6 @@ display: none;
 }
 `;
 
-const EmptyBox = styled.div`
-width: 100px;
-@media screen and (max-width: 768px){
-display: none;
-`
-
-
 const BackDrop = styled.div`
 z-index: 50;
 width: 100%;
@@ -108,18 +106,20 @@ opacity: ${({open}) => open ? '1' : '0'};
 @media screen and (max-height: 230px){
 display: none;
 }
+
+@media screen and (max-width: 230px){
+display: none;
+}
 `
 
-const NavBar = (props) => {
-
+const NavBar = () => {
     const [open, setOpen] = useState(false);
     return (
         <Router>
-            <BackDrop height={props.height} open={open} onClick={() => {
+            <BackDrop open={open} onClick={() => {
                 setOpen(false)
             }}/>
             <Nav>
-
                 <NavMenu>
                     {navigationData.map((item, index) => (
                         <NavMenuButtons
@@ -139,10 +139,7 @@ const NavBar = (props) => {
             </Nav>
             <NavDrawer isOpen={open} clickListener={setOpen}/>
         </Router>
-
-
     )
-
 }
 
 

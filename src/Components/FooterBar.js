@@ -3,7 +3,7 @@ import React from "react";
 import {FaFacebook, FaInstagram, FaGoogle, FaLinkedin, FaGithub} from "react-icons/fa";
 import Zoom from "react-reveal/Zoom";
 import Flip from "react-reveal/Flip";
-import bg from "../Images/bg_final.webp"
+import bg from "../Images/theme_background.webp"
 
 //background: linear-gradient(45deg, #9500ff, #006ded, #ed005f, #d9ff00);
 
@@ -128,7 +128,7 @@ background-position:0 0;
 
 const BottomTextBox = styled.p`
 color: white;
-font-weight: 100;
+font-weight: 400;
 `
 
 const FooterBar = () => {

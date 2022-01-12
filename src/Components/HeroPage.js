@@ -1,24 +1,15 @@
 import styled from "styled-components";
-import React from "react";
+import React, {useState} from "react";
 import {BrowserRouter as Router} from "react-router-dom";
 import {FaGithubSquare} from "react-icons/fa";
 import {FaLinkedin} from "react-icons/fa";
 import {FaArrowAltCircleDown} from "react-icons/fa";
 import {Link} from 'react-scroll';
-import bg from "../Images/bg_final.webp"
+import bg from "../Images/theme_background.webp"
 import Fade from "react-reveal/Fade";
-import Zoom from "react-reveal/Zoom";
+import VisibilitySensor from "react-visibility-sensor";
 
-//1c1d1f
-
-const HeroBackGround = styled.div`
-z-index: 0;
-bottom: 0;
-position: absolute;
-width: 100%;
-height: 100%;
-`
-
+//background: linear-gradient(60deg, #00d9ff, #b000ae, #ff0067, #d9ff00);
 
 const HeroBox = styled.div`
 padding-bottom: 10px;
@@ -29,8 +20,6 @@ width: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
-//background: linear-gradient(180deg, #252627, #5b1bd6);
-//background: linear-gradient(60deg, #00d9ff, #b000ae, #ff0067, #d9ff00);
 background: url(${bg}) fixed;
 animation: gradient 15s ease-in-out infinite;
 background-size: 250vh;
@@ -44,12 +33,12 @@ background-position:50% 0;
 100% {
 background-position:0 0;
 }
-
 `
 
 const Jumbotron = styled.div`
+backdrop-filter: ${props => props.animate ? 'blur(4px)' : 'blur(0px)'};
 overflow: hidden;
-backdrop-filter: blur(4px);
+transition: all 0.1s ease-in-out;
 padding: 40px;
 border-radius: 20px;
 z-index: 10;
@@ -131,13 +120,17 @@ font-size: 32px;
 margin-right: 10px;
 `
 
-const Button = styled.div`
+const   Button = styled.div`
 @keyframes revealContent {
   0%   { transform:  scale(0); opacity: 0}
   100%   { transform:  scale(1); opacity: 1; ;
 }
 }
 @media screen and (max-width: 225px){
+display: none;
+}
+
+@media screen and (max-height: 310px){
 display: none;
 }
 width: 100px;
@@ -163,6 +156,7 @@ transform: scale(1.1, 1.1);
 
 const ImageHolder = styled.div`
 z-index: 0;
+animation: revealContent 1s;
 @keyframes revealContent {
   0%   { transform:  scale(0); opacity: 0}
   100%   { transform:  scale(1); opacity: 1}
@@ -174,7 +168,6 @@ background-position: center;
 height: clamp(8rem, 16vw, 50vw);
 width: clamp(8rem, 16vw, 50vw);
 border-radius: 50%;
-//border: 5px solid white;
 margin: 10px;
 @media screen and (max-width: 768px){
 display: none;
@@ -190,52 +183,61 @@ const HeroPage = () => {
         }
     };
 
+    const [animate, setAnimate] = useState(false);
+
+    function onChange(isVisible) {
+        if (!animate && isVisible) setAnimate(true);
+    }
+
     return (
         <Router>
             <HeroBox id="home">
-                <HeroBackGround/>
-                <Zoom left>
+                <Fade top>
                     <ImageHolder/>
-                </Zoom>
-                <Jumbotron>
-                    <Link
-                        activeClass="active"
-                        to={"footer"}
-                        spy={true}
-                        smooth={true}>
-                        <DownArrow/>
-                    </Link>
-                    <Fade right>
-                        <NameTextHolder>
-                            SOORYA S
-                        </NameTextHolder>
-                    </Fade>
-                    <Fade left>
-                        <DescriptionHolder>
-                            Second year student at Amrita School of Engineering, Coimbatore
-                        </DescriptionHolder>
-                        <SubDescriptionHolder>
-                            Mobile Application & Web Developer
-                        </SubDescriptionHolder>
-                    </Fade>
-                    <Zoom>
-                        <div>
-                            <Button color={"#182923"} onClick={() => open('https://github.com/SooryaSRajan')}>
-                                <ButtonIconGit/>
-                                <p>
-                                    GitHub
-                                </p>
-                            </Button>
-                            <Button color={"#0a66c2"}
-                                    onClick={() => open('https://www.linkedin.com/in/soorya-s-39952b151')}>
-                                <ButtonIconLinkedIn/>
-                                <p>
-                                    LinkedIn
-                                </p>
-                            </Button>
-                        </div>
-                    </Zoom>
-                </Jumbotron>
+                </Fade>
+                    <Jumbotron animate={animate}>
+                        <Link
+                            activeClass="active"
+                            to={"footer"}
+                            spy={true}
+                            smooth={true}>
+                            <DownArrow/>
+                        </Link>
+                        <Fade top>
+                            <VisibilitySensor onChange={onChange}>
+                                <NameTextHolder>
+                                    SOORYA S
+                                </NameTextHolder>
+                            </VisibilitySensor>
+                        </Fade>
+                        <Fade top>
+                            <DescriptionHolder>
+                                Second year student at Amrita School of Engineering, Coimbatore
+                            </DescriptionHolder>
+                        </Fade>
+                        <Fade top>
+                            <SubDescriptionHolder>
+                                Mobile Application & Web Developer
+                            </SubDescriptionHolder>
+                        </Fade>
+                        <Fade top>
+                            <div>
+                                <Button color={"#182923"} onClick={() => open('https://github.com/SooryaSRajan')}>
+                                    <ButtonIconGit/>
+                                    <p>
+                                        GitHub
+                                    </p>
+                                </Button>
+                                <Button color={"#0a66c2"}
+                                        onClick={() => open('https://www.linkedin.com/in/soorya-s-39952b151')}>
+                                    <ButtonIconLinkedIn/>
+                                    <p>
+                                        LinkedIn
+                                    </p>
+                                </Button>
+                            </div>
+                        </Fade>
+                    </Jumbotron>
             </HeroBox>
         </Router>
     )

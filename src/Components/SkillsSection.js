@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import React from "react";
-import svg from "../Images/wave_three.svg";
+import svg from "../Images/skills_component_wave.svg";
 import {FaDownload} from "react-icons/fa";
 import {BrowserRouter as Router, Link} from "react-router-dom";
-import pdf from "../Data/MY_RESUME.pdf";
+import pdf from "../Data/RESUME.pdf";
 import SkillsBar from "./SkillsBar";
 import SKILLS from "../Data/SkillsDataSectionOne";
 import SKILLS2 from "../Data/SkillsDataSectionTwo";
@@ -96,13 +96,11 @@ text-align: center;
 
 const Skills = (props) => {
 
-
     return (
         <Router>
             <SkillsHolder height={props.height + "px"} id="skills">
                 <ContentHolder>
                     <Flip left>
-
                         <TextHolder>
                             Skills
                         </TextHolder>
@@ -117,9 +115,7 @@ const Skills = (props) => {
                             I also have decent experience in React Js and React Native.
                         </SubTextHolder>
                     </Flip>
-
                     <SkillsHolderBox>
-
                         <ContentHolder>
                             <Bounce left>
 
@@ -131,12 +127,9 @@ const Skills = (props) => {
                                     />
                                 ))}
                             </Bounce>
-
                         </ContentHolder>
-
                         <ContentHolder>
                             <Bounce right>
-
                                 {SKILLS2.map((item, index) => (
                                     <SkillsBar key={index}
                                                primaryColor={item.primaryColor}

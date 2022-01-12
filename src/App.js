@@ -1,34 +1,23 @@
-import './App.css';
-import React from "react";
+import React, {useState} from "react";
 import NavBar from "./Components/NavigationBar";
-import HeroPage from "./Pages/HeroPage";
+import HeroPage from "./Components/HeroPage";
 import FooterBar from "./Components/FooterBar";
 import About from "./Components/AboutSection";
 import Skills from "./Components/SkillsSection";
 import Projects from "./Components/Projects";
+import ProjectsGallery from "./Components/ProjectsGallery";
 
 function App() {
-    React.useEffect(() => {
-        window.addEventListener("resize", updateHeightAndWidth);
-        return () => window.removeEventListener("resize", updateHeightAndWidth);
-    });
-
-    const updateHeightAndWidth = () => {
-        setHeight(window.innerHeight);
-        setWidth(window.innerWidth);
-    };
-
-    const [height, setHeight] = React.useState(window.innerHeight);
-    const [width, setWidth] = React.useState(window.innerWidth);
-
+    const [openGallery, setOpenGallery] = useState(false);
     return (
 
         <div className="project">
-            <NavBar height = {height}/>
+            <NavBar/>
+            {openGallery && <ProjectsGallery setOpenGallery={setOpenGallery}/>}
             <HeroPage/>
-            <About height={(height)} width={(width)}/>
-            <Skills height={(height)} width={(width)}/>
-            <Projects height={(height + 20) + "px"}/>
+            <About/>
+            <Skills/>
+            <Projects setOpenGallery={setOpenGallery}/>
             <FooterBar/>
         </div>
     );
