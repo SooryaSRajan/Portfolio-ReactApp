@@ -6,103 +6,142 @@ import profilePicTwo from "../Images/profile_pic_2.jpeg";
 
 
 const AboutContainer = styled.div`
-    overflow: hidden;
-    min-height: 100vh;
-    height: 100%;
-    width: 100%;
-    background: #0a0a0a url(${svg}) no-repeat;
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: space-evenly;
-    `
+  overflow: hidden;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  background: #0a0a0a url(${svg}) no-repeat;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+`
 const ContentSection = styled.div`
-    margin: 40px;
-    `
+  margin: 40px;
+`
 
 const ImageHolder = styled.div`
-    animation: revealContent 1s;
-    @keyframes revealContent {
-      0%   { transform:  scale(0); opacity: 0}
-      100%   { transform:  scale(1); opacity: 1}
+  animation: revealContent 1s;
+  @keyframes revealContent {
+    0% {
+      transform: scale(0);
+      opacity: 0
     }
-    
-    background-image: url(${profilePicTwo});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    height: clamp(8rem, 16vw, 50vw);
-    width: clamp(8rem, 16vw, 50vw);
-    border-radius: 10%;
-    margin: 10px;
-    @media screen and (max-width: 768px){
+    100% {
+      transform: scale(1);
+      opacity: 1
+    }
+  }
+
+  background-image: url(${profilePicTwo});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: clamp(8rem, 16vw, 50vw);
+  width: clamp(8rem, 16vw, 50vw);
+  border-radius: 10%;
+  margin: 10px;
+  @media screen and (max-width: 768px) {
     display: none;
+  }
+`
+
+const ImageHolderMini = styled.div`
+  animation: revealContent 1s;
+  @keyframes revealContent {
+    0% {
+      transform: scale(0);
+      opacity: 0
     }
-    `
+    100% {
+      transform: scale(1);
+      opacity: 1
+    }
+  }
+
+  background-image: url(${profilePicTwo});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 40vw;
+  width: 40vw;
+  border-radius: 10%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+`
 
 const Header = styled.h1`
-    font-size: clamp(2.5vw, 38px, 10vw);
-    color: white;
-    `
+  font-size: clamp(2.5vw, 38px, 10vw);
+  color: white;
+`
 
 const HeaderWithBorder = styled.h2`
-    margin-bottom: 10px;
-    color: white;
-    border-bottom: 3px solid #00cdff;
-    `
+  margin-bottom: 10px;
+  color: white;
+  border-bottom: 3px solid #00cdff;
+`
 
 const Content = styled.div`
-    word-wrap: break-word;
-    word-break: break-word;
-    color: #b1b0b0;
-    margin-bottom: 20px;
-    width: 50vw;
-    font-size: clamp(1rem, 17px, 1.3rem);
-    @media screen and (max-width: 768px){
-    width: 90%;
-    `
+  word-wrap: break-word;
+  text-align: justify;
+  text-justify: inter-word;
+  word-break: break-word;
+  color: #b1b0b0;
+  margin-bottom: 20px;
+  width: 50vw;
+  font-size: clamp(1rem, 17px, 1.3rem);
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+`
 
 const NameSpan = styled.span`
-    color: #e05261;
-    `
+  color: #e05261;
+`
 
 const SubHeader = styled.div`
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #dddddd;
-    font-style: italic;
-    `
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #dddddd;
+  font-style: italic;
+`
 
 const SubHeaderHover = styled.span`
-    transition: 0.5s;
-    &:hover{
+  transition: 0.5s;
+
+  &:hover {
     cursor: context-menu;
     font-size: 16.4px;
     color: white;
-    }
-    `
+  }
+`
 
 const LinkSpan = styled.span`
-    color: #ffdddd;
-    transition: 0.3s;
-    &:hover{
+  color: #ffdddd;
+  transition: 0.3s;
+
+  &:hover {
     color: #ffbaba;
     cursor: pointer;
-    }
-    `
+  }
+`
 
 const EducationTitle = styled.h5`
-    color: whitesmoke;
-    `
+  color: whitesmoke;
+`
 
 const LinkContainer = styled.span`
-    color: white;
-    transition: 0.3s;
-    &:hover{
+  color: white;
+  transition: 0.3s;
+
+  &:hover {
     cursor: pointer;
     font-size: 17.3px;
-    }
-    `
+  }
+`
 
 const About = (props) => {
 
@@ -123,6 +162,7 @@ const About = (props) => {
                     <Header>
                         I'm <NameSpan>Soorya S</NameSpan>
                     </Header>
+                    <ImageHolderMini/>
                     <SubHeader>
                         <SubHeaderHover>
                             Web Developer
@@ -181,6 +221,33 @@ const About = (props) => {
                                 X • CBSE • 2016-2017 • 10/10 GPA
                             </SubHeaderHover>
                         </SubHeader>
+                    </Content>
+
+                    <HeaderWithBorder>
+                        Experience
+                    </HeaderWithBorder>
+                    <Content>
+                        <EducationTitle>
+                            • Google Developer Student Clubs
+                        </EducationTitle>
+                        <SubHeader>
+                            <SubHeaderHover>
+                                <LinkContainer
+                                    onClick={() => open('https://gdsc.community.dev/u/mje94p/#/about')}>
+                                    Android Technical lead in GDCS ASC (Google Developer Student Clubs)
+                                </LinkContainer>
+                            </SubHeaderHover>
+                        </SubHeader>
+                        <EducationTitle>
+                            • Association of Students Of Computer Science for Information Interchange
+                        </EducationTitle>
+                        <SubHeader>
+                            <SubHeaderHover>
+                                Android Lead at Amrita ASCII (ASSOCIATION OF STUDENTS OF COMPUTER SCIENCE FOR
+                                INFORMATION INTERCHANGE)
+                            </SubHeaderHover>
+                        </SubHeader>
+
                     </Content>
 
                     <HeaderWithBorder>
