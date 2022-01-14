@@ -3,7 +3,7 @@ import React from "react";
 import svg from "../Images/skills_component_wave.svg";
 import {FaDownload} from "react-icons/fa";
 import {BrowserRouter as Router, Link} from "react-router-dom";
-import pdf from "../Data/RESUME.pdf";
+import pdf from "../Data/RESUME Soorya S Final_compressed.pdf";
 import SkillsBar from "./SkillsBar";
 import SKILLS from "../Data/SkillsDataSectionOne";
 import SKILLS2 from "../Data/SkillsDataSectionTwo";

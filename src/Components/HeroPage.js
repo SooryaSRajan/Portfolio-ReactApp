@@ -8,7 +8,7 @@ import {Link} from 'react-scroll';
 import bg from "../Images/theme_background.webp"
 import Fade from "react-reveal/Fade";
 import VisibilitySensor from "react-visibility-sensor";
-
+import profilePic from "../Images/profile.jpeg";
 //background: linear-gradient(60deg, #00d9ff, #b000ae, #ff0067, #d9ff00);
 
 const HeroBox = styled.div`
@@ -161,8 +161,8 @@ animation: revealContent 1s;
   0%   { transform:  scale(0); opacity: 0}
   100%   { transform:  scale(1); opacity: 1}
 }
-background-image: url("https://www.w3schools.com/howto/img_avatar.png");
-background-size: clamp(8rem, 16vw, 50vw) clamp(8rem, 16vw, 50vw);
+background-image: url(${profilePic});
+background-size: cover;
 background-repeat: no-repeat;
 background-position: center;
 height: clamp(8rem, 16vw, 50vw);

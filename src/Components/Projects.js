@@ -32,8 +32,8 @@ color: white;
 overflow: hidden;
 position: relative;
 margin: 10px;
-background: white url(${props => props.url}) no-repeat center;
-background-size: cover;
+background: white url(${props => props.url}) repeat-x center;
+background-size: contain;
 width: 90%;
 max-width: 29rem;
 display: inline-block;
@@ -232,7 +232,7 @@ const ContentBox = (props) => {
             <VisibilitySensor onChange={onChange}>
                 <TitleBox>
                     {props.title}
-                    <ExpandButton className={'_hover_expand_gallery_button'} onClick={() => props.setOpenGallery(true)}/>
+                    {/*<ExpandButton className={'_hover_expand_gallery_button'} onClick={() => props.setOpenGallery(true)}/>*/}
                 </TitleBox>
             </VisibilitySensor>
             <GalleryBoxDescription className={'gallery_content_box'}>

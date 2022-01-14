@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import React from "react";
 import svg from "../Images/about_component_wave.svg";
 import Bounce from "react-reveal/Bounce";
+import profilePicTwo from "../Images/profile_pic_2.jpeg";
 
 
 const AboutContainer = styled.div`
@@ -26,10 +27,10 @@ const ImageHolder = styled.div`
       100%   { transform:  scale(1); opacity: 1}
     }
     
-    background-image: url("https://www.w3schools.com/howto/img_avatar.png");
-    background-size: clamp(8rem, 16vw, 50vw) clamp(8rem, 16vw, 50vw);
+    background-image: url(${profilePicTwo});
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: bottom;
     height: clamp(8rem, 16vw, 50vw);
     width: clamp(8rem, 16vw, 50vw);
     border-radius: 10%;
@@ -160,7 +161,7 @@ const About = (props) => {
                         </EducationTitle>
                         <SubHeader>
                             <SubHeaderHover>
-                                B.Tech in Computer Science and Engineering • 2019-2023 • 9.02 CGPA
+                                B.Tech in Computer Science and Engineering • 2019-2023 • 9.08 CGPA
                             </SubHeaderHover>
                         </SubHeader>
                         <EducationTitle>
