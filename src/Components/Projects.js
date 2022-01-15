@@ -64,7 +64,6 @@ position: absolute;
 bottom: -15rem;
 transition: all 0.3s ease-in-out;
 background-color: rgba(60,60,60,0.8);
-height: max-content;
 display: flex;
 justify-content: center;
 `

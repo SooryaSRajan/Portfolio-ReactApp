@@ -185,7 +185,7 @@ const About = (props) => {
                         I am currently pursuing my bachelor's degree in Computer Science (B.Tech CSE) in
                         <LinkSpan
                             onClick={() => open('https://www.amrita.edu/school/engineering/coimbatore/computer-science')}> Amrita
-                            Vishva Vidyapeetham</LinkSpan>, Coimbatore. I am intrigued by technology and how they've
+                            Vishwa Vidyapeetham</LinkSpan>, Coimbatore. I am intrigued by technology and how they've
                         evolved
                         over the course of fifty years. I love developing mobile applications and web-pages. I also love
                         drawing,
@@ -197,7 +197,7 @@ const About = (props) => {
                     </HeaderWithBorder>
                     <Content>
                         <EducationTitle>
-                            • AMRITA VISHVA VIDYAPEETHAM
+                            • AMRITA VISHWA VIDYAPEETHAM
                         </EducationTitle>
                         <SubHeader>
                             <SubHeaderHover>
