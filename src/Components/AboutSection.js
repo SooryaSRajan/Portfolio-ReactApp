@@ -181,7 +181,7 @@ const About = (props) => {
                         </SubHeaderHover>
                     </SubHeader>
                     <Content>
-                        I am a 19 year old computer aspirant with an endearment for computers and technology.
+                        I am a 20 year old computer aspirant with an endearment for computers and technology.
                         I am currently pursuing my bachelor's degree in Computer Science (B.Tech CSE) in
                         <LinkSpan
                             onClick={() => open('https://www.amrita.edu/school/engineering/coimbatore/computer-science')}> Amrita

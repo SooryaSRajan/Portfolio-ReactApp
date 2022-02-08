@@ -238,7 +238,7 @@ const HeroPage = () => {
                     </Fade>
                     <Fade top>
                         <DescriptionHolder>
-                            Second year student at Amrita School of Engineering, Coimbatore
+                            Third year student at Amrita School of Engineering, Coimbatore
                         </DescriptionHolder>
                     </Fade>
                     <Fade top>
